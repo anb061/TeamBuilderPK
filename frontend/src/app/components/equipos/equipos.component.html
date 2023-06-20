@@ -1,10 +1,10 @@
 <div>
-  <span>Team</span>
+  <span style="font-size: 3em">Team</span>
   <input [(ngModel)]="teamName">
-  <button (click)="createTeam()">Add</button>
-  <div class="" *ngFor="let team of teams;">
-    <span>{{ team.teamName }}</span>
-    <button (click)="deleteTeam(team.id)">Delete Team</button>
+  <button (click)="createTeam()" class="buttonSave" >Add</button>
+  <div *ngFor="let team of teams;">
+    <span style="font-size: 5em">{{ team.teamName }}</span>
+    <button class="button" (click)="deleteTeam(team.id)"><svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg></button>
     <div class="team">
       <!-- Bucle *ngFor para recorrer las filas del array bidimensional -->
       <div class="card" *ngFor="let member of teamMembers | filterByTeamId: team.id">
@@ -25,7 +25,7 @@
         <span>SPDEF: {{ member.specialDefense }}</span>
         <span>SPD: {{ member.speed }}</span>
 
-        <button (click)="deletePokemon(member.teamId, member.id)">Delete Pokemon</button>
+        <button class="button" (click)="deletePokemon(member.teamId, member.id)"><svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg> </button>
       </div>
     </div>
   </div>
