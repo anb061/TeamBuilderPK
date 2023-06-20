@@ -1,0 +1,92 @@
+<div class="total">
+  <div class="up">
+    <div class="card">
+      <img src="{{pokeImage}}" class="pkImage">
+      <span class="typeText" *ngIf="types.length > 0">{{types.join(', ')}}</span>
+    </div>
+    <span class="pkName">{{pokeName}}</span>
+    <select class="button" [(ngModel)]="teraType">
+      <option value="">TeraType</option>
+      <option value="bug">Bug</option>
+      <option value="dark">Dark</option>
+      <option value="dragon">Dragon</option>
+      <option value="electric">Electric</option>
+      <option value="fairy">Fairy</option>
+      <option value="fighting">Fighting</option>
+      <option value="fire">Fire</option>
+      <option value="flying">Flying</option>
+      <option value="ghost">Ghost</option>
+      <option value="grass">Grass</option>
+      <option value="ground">Ground</option>
+      <option value="ice">Ice</option>
+      <option value="normal">Normal</option>
+      <option value="poison">Poison</option>
+      <option value="psychic">Psychic</option>
+      <option value="rock">Rock</option>
+      <option value="steel">Steel</option>
+      <option value="water">Water</option>
+    </select>
+  </div>
+  <div class="moves">
+    <div class="move">
+    <span >Move 1</span>
+    <app-search [opciones]="movePool" (result)="setM1($event)"></app-search>
+    </div>
+    <div class="move">
+    <span >Move 2</span>
+    <app-search [opciones]="movePool" (result)="setM2($event)"></app-search>
+    </div>
+    <div class="move">
+    <span >Move 3</span>
+    <app-search [opciones]="movePool" (result)="setM3($event)"></app-search>
+    </div>
+    <div class="move">
+    <span >Move 4</span>
+    <app-search [opciones]="movePool" (result)="setM4($event)"></app-search>
+  </div>
+  </div>
+  <span >Ability:</span>
+  <app-search [opciones]="abilities" (result)="setAbility($event)"></app-search>
+  <span >Item:</span>
+  <app-search [opciones]="items" (result)="setItem($event)"></app-search>
+  <div>
+    <div>
+      <span >Nature:</span>
+      <app-search [opciones]="natures" (result)="setNature($event)"></app-search>
+    </div>
+  <div class="stats">
+    <span >Health Points:</span>
+    <app-slider [total]="unUsedEVs" (result)="setHP($event)"> </app-slider>
+  </div>
+  <div class="stats">
+    <span >Attack:</span>
+    <app-slider [total]="unUsedEVs" (result)="setAttack($event)"> </app-slider>
+  </div>
+  <div class="stats">
+    <span >Defense:</span>
+    <app-slider [total]="unUsedEVs" (result)="setDefense($event)"> </app-slider>
+  </div>
+  <div class="stats">
+    <span >Special Attack:</span>
+    <app-slider [total]="unUsedEVs" (result)="setSpecialAttack($event)"> </app-slider>
+  </div>
+  <div class="stats">
+    <span >Special Defense:</span>
+    <app-slider [total]="unUsedEVs" (result)="setSpecialDefense($event)"> </app-slider>
+  </div>
+  <div class="stats">
+    <span >Speed:</span>
+    <app-slider [total]="unUsedEVs" (result)="setSpeed($event)"> </app-slider>
+  </div>
+</div>
+<div>
+  <button class="buttonSave" (click)="openPopup()">Save</button>
+  <div class="popup" *ngIf="popUp">
+    <button class="buttonSave" (click)="closePopup()">Close Popup</button>
+    <app-search [opciones]="teamsName" (result)="chooseTeam($event)"></app-search>
+    <div *ngIf="safeSave">
+      <button class="buttonSave"(click)="savePokemon();closePopup()">Save</button>
+    </div>
+  </div>
+  </div>
+

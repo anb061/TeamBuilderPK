@@ -1,0 +1,32 @@
+<div>
+  <span>Team</span>
+  <input [(ngModel)]="teamName">
+  <button (click)="createTeam()">Add</button>
+  <div class="" *ngFor="let team of teams;">
+    <span>{{ team.teamName }}</span>
+    <button (click)="deleteTeam(team.id)">Delete Team</button>
+    <div class="team">
+      <!-- Bucle *ngFor para recorrer las filas del array bidimensional -->
+      <div class="card" *ngFor="let member of teamMembers | filterByTeamId: team.id">
+        <img [src]="member.image" alt="">
+        <span>{{ member.name }}</span>
+        <span>Ability: {{ member.ability }}</span>
+        <span>Object: {{ member.object }}</span>
+        <span>Tera: {{ member.tera }}</span>
+        <span>Move1: {{ member.move1 }}</span>
+        <span>Move2: {{ member.move2 }}</span>
+        <span>Move3: {{ member.move3 }}</span>
+        <span>Move4: {{ member.move4 }}</span>
+        <span>Nature: {{ member.nature }}</span>
+        <span>HP: {{ member.hp }}</span>
+        <span>ATK: {{ member.attack }}</span>
+        <span>DEF: {{ member.defense }}</span>
+        <span>SPATK: {{ member.specialAttack }}</span>
+        <span>SPDEF: {{ member.specialDefense }}</span>
+        <span>SPD: {{ member.speed }}</span>
+
+        <button (click)="deletePokemon(member.teamId, member.id)">Delete Pokemon</button>
+      </div>
+    </div>
+  </div>
+</div>

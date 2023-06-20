@@ -1,0 +1,11 @@
+<div class="pkList">
+  <div *ngFor="let pokemon of pokemonData" >
+   <div class = "card" [routerLink]="'/pokemon/' + pokemon.name">
+    <img src="{{pokemon.image}}" alt="{{pokemon.name}}" class="pkImage">
+    <span class = 'pkName' >{{pokemon.name}}</span>
+    <span class = 'pkUsage'>{{pokemon.usage}}</span>
+   </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div >
+  <input  class="search_input" [(ngModel)]="busqueda" placeholder="Buscar" (input)="filtrarOpciones()">
+
+  <div  *ngFor="let opcion of opcionesFiltradas" >
+
+      <button class="button" (click)="actualizarInput(opcion)">{{opcion}}</button>
+
+  </div>
+
+</div>
+

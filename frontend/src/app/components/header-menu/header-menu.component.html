@@ -1,0 +1,8 @@
+<div class="menu">
+  <li routerLink="/principal">Ranking</li>
+  <li routerLink="/equipos">Teams</li>
+<div>
+  <app-big-search [opciones]="pkSearch" (result)="setPokemon($event)"> </app-big-search>
+</div>
+  <button  (click)="cargarPK()" class="search_button" >Search</button>
+</div>
